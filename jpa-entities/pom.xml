@@ -23,6 +23,15 @@
             <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.winshuttle</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>5.2.0</version>
+            <classifier>release</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
-
 </project>

@@ -18,7 +18,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>nexus-snapshot</id>
             <url>http://localhost:8081/repository/nexus-snapshot/</url>
@@ -26,11 +26,36 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+        <repository>
+            <id>nexus-release</id>
+            <url>http://localhost:8081/repository/nexus-release/</url>
+        </repository>
+    </repositories>-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.197</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshot</id>
             <url>http://localhost:8081/repository/nexus-snapshot/</url>
         </snapshotRepository>
+        <repository>
+            <id>nexus-release</id>
+            <url>http://localhost:8081/repository/nexus-release/</url>
+        </repository>
     </distributionManagement>
+    <profiles>
+        <profile>
+            <id>nexus-repo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 </project>
